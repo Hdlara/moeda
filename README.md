@@ -42,13 +42,13 @@ docker-compose up
 After the container started we will run the commands:
 
 ```
-docker-compose exec web python manage.py makemigrations
-docker-compose exec web python manage.py migrate
+docker-compose moeda_backend_1 web python manage.py makemigrations
+docker-compose moeda_backend_1 web python manage.py migrate
 ```
 command to create an admin user:
 
 ```
-docker-compose exec web python manage.py  createsuperuser
+docker-compose exec moeda_backend_1 python manage.py  createsuperuser
 ```
 
 After starting it will be necessary to call the service that makes the requests for the currency (every time you start it will be necessary) if you don't accept next week I will implement the call of the same automatically when the server starts.

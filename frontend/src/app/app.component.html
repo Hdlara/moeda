@@ -1,0 +1,27 @@
+<mat-form-field appearance="fill">
+  <mat-label>Coloque o range que deseja</mat-label>
+  <mat-date-range-input [rangePicker]="picker">
+    <input [formControl]="inicialCtrl" matStartDate placeholder="Inicio">
+    <input [formControl]="finalCtrl" matEndDate placeholder="Final">
+  </mat-date-range-input>
+  <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-date-range-picker #picker></mat-date-range-picker>
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Moeda</mat-label>
+  <mat-select [formControl]="moedaCtrl">
+    <mat-option *ngFor="let moeda of moedas" [value]="moeda">
+      {{moeda}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<button mat-fab class="gradient-primary" mat-raised-button color="primary" (click)="click()">Buscar</button>
+
+<highcharts-chart *ngIf="grafico"
+   [Highcharts] = "highcharts"
+   [options] = "chartOptions"
+   [(update)]="update"
+   [oneToOne]="oneToOne"
+   style = "width: 100%; height: 400px; display: block;">
+</highcharts-chart>
